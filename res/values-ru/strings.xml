@@ -765,4 +765,8 @@
     <string name="supp_service_forwarded_call" msgid="4509980341645679803">"Переадресация вызова."</string>
     <string name="supp_service_conference_call" msgid="4448616364004466832">"Присоединение к конференц-вызову…"</string>
     <string name="supp_service_held_call_released" msgid="2030677825038709779">"Вызов снят с удержания."</string>
+    <!-- My Phone Number -->
+    <string name="phone_number_label">Мой номер</string>
+    <string name="phone_number_summary">Установить номер телефона</string>
+    <string name="set_my_number_failed">Не удалось установить номер</string>
 </resources>

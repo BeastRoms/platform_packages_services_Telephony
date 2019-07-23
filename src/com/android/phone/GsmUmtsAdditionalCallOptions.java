@@ -21,9 +21,11 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
 
     private static final String BUTTON_CLIR_KEY  = "button_clir_key";
     private static final String BUTTON_CW_KEY    = "button_cw_key";
+    private static final String BUTTON_PN_KEY    = "button_pn_key";
 
     private CLIRListPreference mCLIRButton;
     private CallWaitingSwitchPreference mCWButton;
+    private MSISDNEditPreference mMSISDNButton;
 
     private final ArrayList<Preference> mPreferences = new ArrayList<Preference>();
     private int mInitIndex = 0;
@@ -47,6 +49,7 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
         PreferenceScreen prefSet = getPreferenceScreen();
         mCLIRButton = (CLIRListPreference) prefSet.findPreference(BUTTON_CLIR_KEY);
         mCWButton = (CallWaitingSwitchPreference) prefSet.findPreference(BUTTON_CW_KEY);
+        mMSISDNButton = (MSISDNEditPreference) prefSet.findPreference(BUTTON_PN_KEY);
 
         PersistableBundle b = null;
         if (mSubscriptionInfoHelper.hasSubId()) {
@@ -78,6 +81,8 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
                 prefSet.removePreference(mCWButton);
             }
         }
+		
+        mPreferences.add(mMSISDNButton);
 
         if (mPreferences.size() != 0) {
             if (icicle == null) {
@@ -104,6 +109,7 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
                             mCLIRButton.init(this, false, mPhone);
                         }
                     }
+                mMSISDNButton.init(this, false, mPhone);
                 }
             }
         }
@@ -163,6 +169,8 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
                   ((CLIRListPreference) pref).setSummary(R.string.sum_default_caller_id);
                 } else {
                   ((CLIRListPreference) pref).init(this, false, mPhone);
+            } else if (pref instanceof MSISDNEditPreference) {
+                ((MSISDNEditPreference) pref).init(this, false, mPhone);
                 }
             }
         }

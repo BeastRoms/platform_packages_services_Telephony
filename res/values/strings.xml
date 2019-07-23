@@ -1829,4 +1829,9 @@
     <string translatable="false" name="config_world_mode_spn">false</string>
     <!-- Configuration setting for mobile network settings show network option by phoneType. Format is <true;SPN if any to be checked>-->
     <string translatable="false" name="config_show_gsm_option">false</string>
+    <!-- My Phone Number -->
+    <string name="phone_number_label">My phone number</string>
+    <string name="phone_number_summary">Set the phone number for this device</string>
+    <string name="set_my_number_failed">Failed to set phone number</string>
+    <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
 </resources>
