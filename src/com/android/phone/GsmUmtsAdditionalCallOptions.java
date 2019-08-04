@@ -164,13 +164,13 @@ public class GsmUmtsAdditionalCallOptions extends TimeConsumingPreferenceActivit
             Preference pref = mPreferences.get(index);
             if (pref instanceof CallWaitingSwitchPreference) {
                 ((CallWaitingSwitchPreference) pref).init(this, false, mPhone);
+            } else if (pref instanceof MSISDNEditPreference) {
+                ((MSISDNEditPreference) pref).init(this, false, mPhone);
             } else if (pref instanceof CLIRListPreference) {
                 if (isUtEnabledToDisableClir()) {
                   ((CLIRListPreference) pref).setSummary(R.string.sum_default_caller_id);
                 } else {
                   ((CLIRListPreference) pref).init(this, false, mPhone);
-            } else if (pref instanceof MSISDNEditPreference) {
-                ((MSISDNEditPreference) pref).init(this, false, mPhone);
                 }
             }
         }
